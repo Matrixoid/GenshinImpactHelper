@@ -7,11 +7,39 @@
         xmlns:vm="clr-namespace:GenshinImpactHelper.ViewModels"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="{Binding Path=Title}" Height="450" Width="800">
+        Title="{Binding Path=Title}" Height="450" Width="534">
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
     <Grid>
-        
+        <Image Height="588" 
+               Stretch="UniformToFill" 
+               Source="../../Images/Background.jpeg" 
+               Margin="-256,-77,-144,-77"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="3*"/>
+                </Grid.RowDefinitions>
+                <Image Grid.Row="0" Source="../../Images/Logo.png"/>
+            </Grid>
+            <Image Grid.Column="0" 
+                   Source="../../Images/Characters/Amber.png" 
+                   VerticalAlignment="Bottom" 
+                   Height="306" 
+                   Margin="0,128,0,0"/>
+            <Image Grid.Column="2" 
+                   Source="../../Images/Characters/Lisa.png" 
+                   Margin="0,134,-1,0" 
+                   Stretch="UniformToFill"
+                   Height="300" 
+                   VerticalAlignment="Bottom"/>
+        </Grid>
     </Grid>
 </Window>
