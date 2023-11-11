@@ -49,10 +49,10 @@
                    Source="../../Images/Characters/Amber.png" 
                    VerticalAlignment="Bottom" 
                    Height="306" 
-                   Margin="0,128,0,0"/>
+                   Margin="0,120,0,0"/>
             <Image Grid.Column="2" 
                    Source="../../Images/Characters/Lisa.png" 
-                   Margin="0,134,-1,0" 
+                   Margin="0,120,0,0" 
                    Stretch="UniformToFill"
                    Height="300" 
                    VerticalAlignment="Bottom"/>
