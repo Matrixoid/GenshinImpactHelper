@@ -10,9 +10,10 @@
         Icon="../../Images/Icon.ico"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
-        Title="{Binding Path=Title}" Height="450" Width="534">
+        Title="{Binding Title}" Height="450" Width="534">
     <Window.Resources>
         <cmd:CloseApplicationCommand x:Key="CloseApplicationCommand"/>
+        <cmd:EnterAppCommand x:Key="EnterAppCommand"/>
     </Window.Resources>
     <Window.DataContext>
         <vm:MainWindowViewModel/>
@@ -64,7 +65,7 @@
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <Button Grid.Row="0" Height="50" VerticalAlignment="Bottom">
+                    <Button Grid.Row="0" Height="50" VerticalAlignment="Bottom" Command="{StaticResource EnterAppCommand}">
                         <TextBlock Text="Вход" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                     </Button>
                     <Button Grid.Row="1" Height="50" Command="{StaticResource CloseApplicationCommand}">
