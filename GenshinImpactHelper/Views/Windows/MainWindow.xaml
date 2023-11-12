@@ -8,6 +8,7 @@
         xmlns:cmd="clr-namespace:GenshinImpactHelper.Infrastructure.Commands"
         mc:Ignorable="d"
         ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
         Title="{Binding Path=Title}" Height="450" Width="534">
     <Window.Resources>
         <cmd:CloseApplicationCommand x:Key="CloseApplicationCommand"/>
@@ -43,7 +44,20 @@
                 <Image Grid.Row="0" 
                        x:Name="logo"
                        Source="../../Images/Logo.png"
-                       RenderOptions.BitmapScalingMode="HighQuality"/>
+                       RenderOptions.BitmapScalingMode="HighQuality">
+                    <Image.RenderTransform>
+                        <TranslateTransform x:Name="logoTransform" X="0" Y="-110"/>
+                    </Image.RenderTransform>
+                    <Image.Triggers>
+                        <EventTrigger RoutedEvent="Loaded">
+                            <BeginStoryboard>
+                                <Storyboard TargetName="logoTransform" TargetProperty="Y">
+                                    <DoubleAnimation BeginTime="0:0:2" Duration="0:0:2" From="-110" To="0"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Image.Triggers>
+                </Image>
                 <Grid Grid.Row="1">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -60,11 +74,37 @@
             <Image Grid.Column="0"
                    x:Name="amber"
                    Source="../../Images/Characters/Amber.png"
-                   Style="{StaticResource ImageStyle}"/>
+                   Style="{StaticResource ImageStyle}">
+                <Image.RenderTransform>
+                    <TranslateTransform x:Name="amberTransform" X="-170" Y="0"/>
+                </Image.RenderTransform>
+                <Image.Triggers>
+                    <EventTrigger RoutedEvent="Loaded">
+                        <BeginStoryboard>
+                            <Storyboard TargetName="amberTransform" TargetProperty="X">
+                                <DoubleAnimation Duration="0:0:2" From="-160" To="0"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Image.Triggers>
+            </Image>
             <Image Grid.Column="2"
                    x:Name="lisa"
                    Source="../../Images/Characters/Lisa.png"
-                   Style="{StaticResource ImageStyle}"/>
+                   Style="{StaticResource ImageStyle}">
+                <Image.RenderTransform>
+                    <TranslateTransform x:Name="lisaTransform" X="160" Y="0"/>
+                </Image.RenderTransform>
+                <Image.Triggers>
+                    <EventTrigger RoutedEvent="Loaded">
+                        <BeginStoryboard>
+                            <Storyboard TargetName="lisaTransform" TargetProperty="X">
+                                <DoubleAnimation Duration="0:0:2" From="160" To="0"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Image.Triggers>
+            </Image>
         </Grid>
     </Grid>
 </Window>
