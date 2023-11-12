@@ -40,7 +40,10 @@
                     <RowDefinition Height="2*"/>
                     <RowDefinition Height="3*"/>
                 </Grid.RowDefinitions>
-                <Image Grid.Row="0" Source="../../Images/Logo.png" RenderOptions.BitmapScalingMode="HighQuality"/>
+                <Image Grid.Row="0" 
+                       x:Name="logo"
+                       Source="../../Images/Logo.png"
+                       RenderOptions.BitmapScalingMode="HighQuality"/>
                 <Grid Grid.Row="1">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -54,10 +57,12 @@
                     </Button>
                 </Grid>
             </Grid>
-            <Image Grid.Column="0" 
+            <Image Grid.Column="0"
+                   x:Name="amber"
                    Source="../../Images/Characters/Amber.png"
                    Style="{StaticResource ImageStyle}"/>
-            <Image Grid.Column="2" 
+            <Image Grid.Column="2"
+                   x:Name="lisa"
                    Source="../../Images/Characters/Lisa.png"
                    Style="{StaticResource ImageStyle}"/>
         </Grid>
