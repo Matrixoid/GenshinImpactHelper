@@ -1,0 +1,112 @@
+﻿<Window x:Class="GenshinImpactHelper.Views.Windows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:l="clr-namespace:GenshinImpactHelper"
+        xmlns:vm="clr-namespace:GenshinImpactHelper.ViewModels"
+        xmlns:cmd="clr-namespace:GenshinImpactHelper.Infrastructure.Commands"
+        mc:Ignorable="d"
+        Icon="../../Images/Icon.ico"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Title="{Binding Title}" Height="450" Width="534">
+    <Window.Resources>
+        <cmd:CloseApplicationCommand x:Key="CloseApplicationCommand"/>
+        <cmd:EnterAppCommand x:Key="EnterAppCommand"/>
+    </Window.Resources>
+    <Window.DataContext>
+        <vm:MainWindowViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <Image Height="588" 
+               Stretch="UniformToFill" 
+               Source="../../Images/Background.jpeg" 
+               Margin="-256,-77,-144,-77"/>
+        <Grid>
+            <Grid.Resources>
+                <Style TargetType="Image" x:Key="ImageStyle">
+                    <Setter Property="VerticalAlignment" Value="Bottom"/>
+                    <Setter Property="RenderOptions.BitmapScalingMode" Value="HighQuality"/>
+                    <Setter Property="Margin" Value="0,120,0,0"/>
+                    <Setter Property="Stretch" Value="Fill"/>
+                    <Setter Property="Height" Value="270"/>
+                </Style>
+            </Grid.Resources>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="3*"/>
+                </Grid.RowDefinitions>
+                <Image Grid.Row="0" 
+                       x:Name="logo"
+                       Source="../../Images/Logo.png"
+                       RenderOptions.BitmapScalingMode="HighQuality">
+                    <Image.RenderTransform>
+                        <TranslateTransform x:Name="logoTransform" X="0" Y="-110"/>
+                    </Image.RenderTransform>
+                    <Image.Triggers>
+                        <EventTrigger RoutedEvent="Loaded">
+                            <BeginStoryboard>
+                                <Storyboard TargetName="logoTransform" TargetProperty="Y">
+                                    <DoubleAnimation BeginTime="0:0:2" Duration="0:0:2" From="-110" To="0"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Image.Triggers>
+                </Image>
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Button Grid.Row="0" Height="50" VerticalAlignment="Bottom" Command="{StaticResource EnterAppCommand}">
+                        <TextBlock Text="Вход" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Button>
+                    <Button Grid.Row="1" Height="50" Command="{StaticResource CloseApplicationCommand}">
+                        <TextBlock Text="Выход" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Button>
+                </Grid>
+            </Grid>
+            <Image Grid.Column="0"
+                   x:Name="amber"
+                   Source="../../Images/Characters/Amber.png"
+                   Style="{StaticResource ImageStyle}">
+                <Image.RenderTransform>
+                    <TranslateTransform x:Name="amberTransform" X="-170" Y="0"/>
+                </Image.RenderTransform>
+                <Image.Triggers>
+                    <EventTrigger RoutedEvent="Loaded">
+                        <BeginStoryboard>
+                            <Storyboard TargetName="amberTransform" TargetProperty="X">
+                                <DoubleAnimation Duration="0:0:2" From="-160" To="0"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Image.Triggers>
+            </Image>
+            <Image Grid.Column="2"
+                   x:Name="lisa"
+                   Source="../../Images/Characters/Lisa.png"
+                   Style="{StaticResource ImageStyle}">
+                <Image.RenderTransform>
+                    <TranslateTransform x:Name="lisaTransform" X="160" Y="0"/>
+                </Image.RenderTransform>
+                <Image.Triggers>
+                    <EventTrigger RoutedEvent="Loaded">
+                        <BeginStoryboard>
+                            <Storyboard TargetName="lisaTransform" TargetProperty="X">
+                                <DoubleAnimation Duration="0:0:2" From="160" To="0"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Image.Triggers>
+            </Image>
+        </Grid>
+    </Grid>
+</Window>
