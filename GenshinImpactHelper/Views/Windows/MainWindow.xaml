@@ -21,6 +21,15 @@
                Source="../../Images/Background.jpeg" 
                Margin="-256,-77,-144,-77"/>
         <Grid>
+            <Grid.Resources>
+                <Style TargetType="Image" x:Key="ImageStyle">
+                    <Setter Property="VerticalAlignment" Value="Bottom"/>
+                    <Setter Property="RenderOptions.BitmapScalingMode" Value="HighQuality"/>
+                    <Setter Property="Margin" Value="0,120,0,0"/>
+                    <Setter Property="Stretch" Value="Fill"/>
+                    <Setter Property="Height" Value="270"/>
+                </Style>
+            </Grid.Resources>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -31,7 +40,7 @@
                     <RowDefinition Height="2*"/>
                     <RowDefinition Height="3*"/>
                 </Grid.RowDefinitions>
-                <Image Grid.Row="0" Source="../../Images/Logo.png"/>
+                <Image Grid.Row="0" Source="../../Images/Logo.png" RenderOptions.BitmapScalingMode="HighQuality"/>
                 <Grid Grid.Row="1">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -46,16 +55,11 @@
                 </Grid>
             </Grid>
             <Image Grid.Column="0" 
-                   Source="../../Images/Characters/Amber.png" 
-                   VerticalAlignment="Bottom" 
-                   Height="306" 
-                   Margin="0,120,0,0"/>
+                   Source="../../Images/Characters/Amber.png"
+                   Style="{StaticResource ImageStyle}"/>
             <Image Grid.Column="2" 
-                   Source="../../Images/Characters/Lisa.png" 
-                   Margin="0,120,0,0" 
-                   Stretch="UniformToFill"
-                   Height="300" 
-                   VerticalAlignment="Bottom"/>
+                   Source="../../Images/Characters/Lisa.png"
+                   Style="{StaticResource ImageStyle}"/>
         </Grid>
     </Grid>
 </Window>
